@@ -231,10 +231,33 @@ MonoBehaviour:
   _topSpeed: 40
   _topPower: 48
   SpeedText: {fileID: 0}
+  SlipCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.046639252
+      value: 0.32912862
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.99920654
+      value: 0.050304413
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _frontWheels:
   - {fileID: 1932266858650822650}
   - {fileID: 4255364271405410419}
-  _tireGrip: 0.05
   _tireMass: 1
   _steeringRange: 30
   _steeringRangeAtMaxSpeed: 60

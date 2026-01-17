@@ -23,8 +23,8 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SpeedText;
 
     [Header("Steering Physics")]
+    public AnimationCurve SlipCurve;
     [SerializeField] private Transform[] _frontWheels;
-    [SerializeField] private float _tireGrip = 1;
     [SerializeField] private float _tireMass = 25;
     [SerializeField] private float _steeringRange = 30;
     [SerializeField] private float _steeringRangeAtMaxSpeed = 60;
@@ -215,8 +215,11 @@ public class CarPhysics : MonoBehaviour
                 Vector3 tireWorldVel = _rb.GetPointVelocity(wheel.position);
                 //find the speed of the tire in the wheel's steering direction
                 float steeringVel = Vector3.Dot(steeringDir, tireWorldVel);
+                //find the amount of tire grip to apply to the tire based on how much the tire is slipping
+                float normazliedSteeringVel = Mathf.Clamp01(Mathf.Abs(steeringVel) / tireWorldVel.magnitude);
+                float tireGrip = SlipCurve.Evaluate(normazliedSteeringVel);
                 //find the opposing direction of force against tire slippage
-                float desiredVelChange = -steeringVel * _tireGrip;
+                float desiredVelChange = -steeringVel * tireGrip;
                 //acceleration of said velocity change
                 float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
                 _rb.AddForceAtPosition(steeringDir * _tireMass * desiredAccel, wheel.position);
