@@ -169,19 +169,19 @@ MonoBehaviour:
   - {fileID: 3141121282367689389}
   - {fileID: 6721194419034889178}
   - {fileID: 8034235102578166176}
-  _wheelRadius: 0.13
+  _wheelRadius: 0.34
   GroundLayer:
     serializedVersion: 2
     m_Bits: 12
   _springStrength: 350
   _springDamper: 45
-  _suspensionRestDistance: 0.19
+  _suspensionRestDistance: 0.4
   PowerCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
+      time: 0.0041503906
+      value: 0.49780273
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -216,8 +216,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.9958211
-      value: 0.5039762
+      time: 0.9999715
+      value: 0.35700357
       inSlope: -0.007414407
       outSlope: -0.007414407
       tangentMode: 0
@@ -228,7 +228,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _carBody: {fileID: 8635432552005183084}
-  _topSpeed: 30
+  _topSpeed: 10
+  _topPower: 48
+  SpeedText: {fileID: 0}
+  _tireGrip: 1
+  _tireMass: 1
 --- !u!1 &3500181140495435139
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4782821393277929192}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.598, y: -0.47000003, z: -1.3200002}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0

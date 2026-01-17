@@ -20,7 +20,10 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private float _topSpeed = 30f;
     [SerializeField] private float _topPower = 300f;
     [SerializeField] private TextMeshProUGUI SpeedText;
-    public float currentForce;
+
+    [Header("Steering Physics")]
+    [SerializeField] private float _tireGrip = 1;
+    [SerializeField] private float _tireMass = 25;
     //components
     private Rigidbody _rb;
 
@@ -49,7 +52,8 @@ public class CarPhysics : MonoBehaviour
     {
         CalculateSuspensionForces();
         CalculateAccelerationForce();
-        SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} MPH";
+        SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} m/s";
+        CalculateSteeringForces();
     }
 
     private void CalculateSuspensionForces()
@@ -106,7 +110,6 @@ public class CarPhysics : MonoBehaviour
                     float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
                     //evaulate the amount of torque needed for that speed and input value
                     float availableTorque = PowerCurve.Evaluate(normalizedSpeed) * _topPower;
-                    currentForce = availableTorque;
                     //add torque to wheel using add force at position
                     _rb.AddForceAtPosition(accelDir * availableTorque, wheel.position);
                 }
@@ -115,6 +118,34 @@ public class CarPhysics : MonoBehaviour
 
         }
         
+    }
+
+    private void CalculateSteeringForces()
+    {
+        for (int i = 0; i < _wheelPositions.Length; i++)
+        {
+            //test whether each wheel is in contact with the ground via a raycast
+            Transform wheel = _wheelPositions[i];
+            RaycastHit hit;
+            bool groundCheck = Physics.Raycast(wheel.position, -1 * wheel.up, out hit, _wheelRadius + _suspensionRestDistance, GroundLayer);
+            //if it does have contact with the ground
+            if (groundCheck)
+            {
+                //calculate the direction you dont want the tire to slide in
+                Vector3 steeringDir = wheel.right;
+                //get the velocity of the tire
+                Vector3 tireWorldVel = _rb.GetPointVelocity(wheel.position);
+                //find the speed of the tire in the wheel's steering direction
+                float steeringVel = Vector3.Dot(steeringDir, tireWorldVel);
+                //find the opposing direction of force against tire slippage
+                float desiredVelChange = -steeringVel * _tireGrip;
+                //acceleration of said velocity change
+                float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+                _rb.AddForceAtPosition(steeringDir * _tireMass * desiredAccel, wheel.position);
+
+            }
+
+        }
     }
 
     private void OnEnable()
