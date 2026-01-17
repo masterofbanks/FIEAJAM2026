@@ -169,14 +169,66 @@ MonoBehaviour:
   - {fileID: 3141121282367689389}
   - {fileID: 6721194419034889178}
   - {fileID: 8034235102578166176}
-  _floatDistance: 0.5
+  _wheelRadius: 0.13
   GroundLayer:
     serializedVersion: 2
     m_Bits: 12
-  _springStrength: 2
-  _springDamper: 5
-  _suspensionRestDistance: 2
-  offset: 0
+  _springStrength: 350
+  _springDamper: 45
+  _suspensionRestDistance: 0.19
+  PowerCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.24574235
+      value: 0.90471864
+      inSlope: 1.1831372
+      outSlope: 1.1831372
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.35662973
+      value: 0.99037564
+      inSlope: 0.10901313
+      outSlope: 0.10901313
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.87491304
+      value: 0.7845473
+      inSlope: -1.1597121
+      outSlope: -1.1597121
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9958211
+      value: 0.5039762
+      inSlope: -0.007414407
+      outSlope: -0.007414407
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _carBody: {fileID: 8635432552005183084}
+  _topSpeed: 30
 --- !u!1 &3500181140495435139
 GameObject:
   m_ObjectHideFlags: 0
