@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1693000930659944158}
   - component: {fileID: 2364782283353442683}
   - component: {fileID: 519483771057847729}
+  - component: {fileID: 4346712706627315013}
   m_Layer: 0
   m_Name: SM_ROAD_05_CANDY
   m_TagString: Untagged
@@ -92,3 +93,15 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4346712706627315013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032653733066972260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3185148859bcc024bbf04cd6f98b019e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InitializeMeshCollider

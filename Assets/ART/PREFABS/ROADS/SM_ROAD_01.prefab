@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6089741618293886585}
   - component: {fileID: 7146297994988405212}
   - component: {fileID: 4956272275382744342}
+  - component: {fileID: 3655928235497283169}
   m_Layer: 0
   m_Name: SM_ROAD_01
   m_TagString: Untagged
@@ -92,3 +93,15 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3655928235497283169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901989699445953731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3185148859bcc024bbf04cd6f98b019e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InitializeMeshCollider
