@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 095a057d977b93b4093034e122cf9b54
+guid: 8c1831e377df247418c8a9fae09c8f1f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roadTile_141_Asphalt1
+    second: {fileID: 2100000, guid: 47e7e32327857484aabb1fae575f5439, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roadTile_141_Grass1
+    second: {fileID: 2100000, guid: 49390b8a94cc5af42a6ed29f8932da89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roadTile_141_Stone1
+    second: {fileID: 2100000, guid: fe78d5b6cbfb94044bc37a8e8b09ff65, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
