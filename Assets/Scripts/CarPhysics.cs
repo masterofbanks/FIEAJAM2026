@@ -139,7 +139,7 @@ public class CarPhysics : MonoBehaviour
         //normalize that car speed with respect to the car's top speed
         float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
         float currentSteerRange = Mathf.Lerp(_steeringRange, _steeringRangeAtMaxSpeed, normalizedSpeed);
-        float rotationValue = directionalInput.x * _steeringRange + transform.eulerAngles.y;
+        float rotationValue = directionalInput.x * currentSteerRange + transform.eulerAngles.y;
 
         foreach(Transform wheel in _frontWheels)
         {
