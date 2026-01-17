@@ -39,9 +39,11 @@ public class CarPhysics : MonoBehaviour
     private Vector2 directionalInput;
     private InputAction move;
     private InputAction attack;
+    private InputAction flip;
     public InputSystem_Actions ISAs;
 
     private Vector3 startPos;
+    private Quaternion startRot;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -52,6 +54,7 @@ public class CarPhysics : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
+        startRot = transform.rotation;
     }
 
     private void Update()
@@ -226,24 +229,35 @@ public class CarPhysics : MonoBehaviour
     private void ResetCar(InputAction.CallbackContext cxt)
     {
         transform.position = startPos;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = startRot;
         _rb.linearVelocity = Vector3.zero;
         Debug.Log("Reset Car");
+    }
+
+    private void FlipCar(InputAction.CallbackContext cxt)
+    {
+        transform.rotation = startRot;
+        float verticalOffset = 5f;
+        transform.position = new Vector3(transform.position.x, transform.position.y + verticalOffset, transform.position.z);
     }
 
     private void OnEnable()
     {
         move = ISAs.Player.Move;
         attack = ISAs.Player.Attack;
+        flip = ISAs.Player.Flip;
         move.Enable();
         attack.Enable();
+        flip.Enable();
 
         attack.performed += ResetCar;
+        flip.performed += FlipCar;
     }
 
     private void OnDisable()
     {
         move.Disable();
         attack.Disable();
+        flip.Disable();
     }
 }
