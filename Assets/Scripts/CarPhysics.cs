@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,15 +23,21 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SpeedText;
 
     [Header("Steering Physics")]
+    [SerializeField] private Transform[] _frontWheels;
     [SerializeField] private float _tireGrip = 1;
     [SerializeField] private float _tireMass = 25;
+    [SerializeField] private float _steeringRange = 30;
+    [SerializeField] private float _steeringRangeAtMaxSpeed = 60;
     //components
     private Rigidbody _rb;
 
     //input
     private Vector2 directionalInput;
     private InputAction move;
+    private InputAction attack;
     public InputSystem_Actions ISAs;
+
+    private Vector3 startPos;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -40,12 +47,17 @@ public class CarPhysics : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        startPos = transform.position;
     }
 
     private void Update()
     {
-        directionalInput = move.ReadValue<Vector2>();
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
+        directionalInput = new Vector2(System.MathF.Sign(move.ReadValue<Vector2>().x), System.MathF.Sign(move.ReadValue<Vector2>().y));
     }
 
     private void FixedUpdate()
@@ -53,6 +65,7 @@ public class CarPhysics : MonoBehaviour
         CalculateSuspensionForces();
         CalculateAccelerationForce();
         SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} m/s";
+        ChangeSteeringDirection();
         CalculateSteeringForces();
     }
 
@@ -120,6 +133,20 @@ public class CarPhysics : MonoBehaviour
         
     }
 
+    private void ChangeSteeringDirection()
+    {
+        float carSpeed = Vector3.Dot(_carBody.forward, _rb.linearVelocity);
+        //normalize that car speed with respect to the car's top speed
+        float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
+        float currentSteerRange = Mathf.Lerp(_steeringRange, _steeringRangeAtMaxSpeed, normalizedSpeed);
+        float rotationValue = directionalInput.x * _steeringRange + transform.eulerAngles.y;
+
+        foreach(Transform wheel in _frontWheels)
+        {
+            wheel.eulerAngles = new Vector3(0, rotationValue, 0);
+        }
+    }
+
     private void CalculateSteeringForces()
     {
         for (int i = 0; i < _wheelPositions.Length; i++)
@@ -148,14 +175,27 @@ public class CarPhysics : MonoBehaviour
         }
     }
 
+    private void ResetCar(InputAction.CallbackContext cxt)
+    {
+        transform.position = startPos;
+        transform.rotation = Quaternion.identity;
+        _rb.linearVelocity = Vector3.zero;
+        Debug.Log("Reset Car");
+    }
+
     private void OnEnable()
     {
         move = ISAs.Player.Move;
+        attack = ISAs.Player.Attack;
         move.Enable();
+        attack.Enable();
+
+        attack.performed += ResetCar;
     }
 
     private void OnDisable()
     {
         move.Disable();
+        attack.Disable();
     }
 }
