@@ -20,7 +20,7 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private Transform _carBody;
     [SerializeField] private float _topSpeed = 30f;
     [SerializeField] private float _topPower = 300f;
-    //[SerializeField] private TextMeshProUGUI SpeedText;
+    [SerializeField] private TextMeshProUGUI SpeedText;
 
     [Header("Steering Physics")]
     [SerializeField] private Transform[] _frontWheels;
@@ -28,6 +28,10 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private float _tireMass = 25;
     [SerializeField] private float _steeringRange = 30;
     [SerializeField] private float _steeringRangeAtMaxSpeed = 60;
+
+    [Header("Braking and Reverse Physics")]
+    [SerializeField] private float _brakeForce = 5f;
+    [SerializeField] private float _minSpeedToReverse = 0.3f;
     //components
     private Rigidbody _rb;
 
@@ -64,7 +68,10 @@ public class CarPhysics : MonoBehaviour
     {
         CalculateSuspensionForces();
         CalculateAccelerationForce();
-        //SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} m/s";
+
+        if(SpeedText != null)
+            SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} m/s";
+
         ChangeSteeringDirection();
         CalculateSteeringForces();
     }
@@ -111,20 +118,61 @@ public class CarPhysics : MonoBehaviour
             //if it does have contact with the ground
             if (groundCheck)
             {
-                //find the world space direction of the acceleration/braking force
+                //find the world space direction of the acceleration force
                 Vector3 accelDir = wheel.forward;
                 //if the move.y > 0 (W key or Up Arrow)
                 if(directionalInput.y > 0)
                 {
-                    //Debug.Log("directional input up");
                     //find the current car speed as the dot product between the car body's forward transform and the rigidbody's velocity
                     float carSpeed = Vector3.Dot(_carBody.forward, _rb.linearVelocity);
                     //normalize that car speed with respect to the car's top speed
                     float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
-                    //evaulate the amount of torque needed for that speed and input value
-                    float availableTorque = PowerCurve.Evaluate(normalizedSpeed) * _topPower;
-                    //add torque to wheel using add force at position
-                    _rb.AddForceAtPosition(accelDir * availableTorque, wheel.position);
+
+                    if(normalizedSpeed < 1)
+                    {
+                        //evaulate the amount of torque needed for that speed and input value
+                        float availableTorque = PowerCurve.Evaluate(normalizedSpeed) * _topPower;
+                        //add torque to wheel using add force at position
+                        _rb.AddForceAtPosition(accelDir * availableTorque, wheel.position);
+                    }
+                    
+                }
+
+                //braking or reversing
+                else if(directionalInput.y < 0)
+                {
+                    //find the forward direction of the wheel
+                    //get the velocity of the tire
+                    Vector3 tireWorldVel = _rb.GetPointVelocity(wheel.position);
+                    //find the speed of the tire in the wheel's forward direction
+                    float forwardVel = Vector3.Dot(accelDir, tireWorldVel);
+                    if(forwardVel > _minSpeedToReverse)
+                    {
+                        //find backwards velocity change needed to brake
+                        float desiredVelChange = -forwardVel * _brakeForce;
+                        //acceleration of said velocity change
+                        float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+                        //add braking force
+                        _rb.AddForceAtPosition(accelDir * _tireMass * desiredAccel, wheel.position);
+                    }
+
+                    //reverse
+                    else
+                    {
+                        //find the current car speed as the dot product between the car body's forward transform and the rigidbody's velocity
+                        float carSpeed = Vector3.Dot(-1 * _carBody.forward, _rb.linearVelocity);
+                        //normalize that car speed with respect to the car's top speed
+                        float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
+
+                        if (normalizedSpeed < 1)
+                        {
+                            //evaulate the amount of torque needed for that speed and input value
+                            float availableTorque = PowerCurve.Evaluate(normalizedSpeed) * _topPower;
+                            //add torque to wheel using add force at position
+                            _rb.AddForceAtPosition(-1 * accelDir * availableTorque, wheel.position);
+                        }
+                    }
+                    
                 }
 
             }

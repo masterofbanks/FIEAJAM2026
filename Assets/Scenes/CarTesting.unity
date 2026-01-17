@@ -976,10 +976,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 832004948}
     - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: _tireGrip
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: _floatDistance
       value: 0.7
       objectReference: {fileID: 0}

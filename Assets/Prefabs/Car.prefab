@@ -230,13 +230,16 @@ MonoBehaviour:
   _carBody: {fileID: 8635432552005183084}
   _topSpeed: 40
   _topPower: 48
+  SpeedText: {fileID: 0}
   _frontWheels:
   - {fileID: 1932266858650822650}
   - {fileID: 4255364271405410419}
-  _tireGrip: 1
+  _tireGrip: 0.05
   _tireMass: 1
   _steeringRange: 30
   _steeringRangeAtMaxSpeed: 60
+  _brakeForce: 0.1
+  _minSpeedToReverse: 0.3
 --- !u!1 &3503747190575649147
 GameObject:
   m_ObjectHideFlags: 0
