@@ -20,7 +20,7 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private Transform _carBody;
     [SerializeField] private float _topSpeed = 30f;
     [SerializeField] private float _topPower = 300f;
-    [SerializeField] private TextMeshProUGUI SpeedText;
+    //[SerializeField] private TextMeshProUGUI SpeedText;
 
     [Header("Steering Physics")]
     [SerializeField] private Transform[] _frontWheels;
@@ -64,7 +64,7 @@ public class CarPhysics : MonoBehaviour
     {
         CalculateSuspensionForces();
         CalculateAccelerationForce();
-        SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} m/s";
+        //SpeedText.text = $"{(int)_rb.linearVelocity.magnitude} m/s";
         ChangeSteeringDirection();
         CalculateSteeringForces();
     }
