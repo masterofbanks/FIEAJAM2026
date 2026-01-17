@@ -872,13 +872,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1043927931495890697, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: aee921d918e1c284192903b5917d7781, type: 2}
-    - target: {fileID: 1684179763230710714, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b701d5f3f3b3ba4ba3b2e5a76401859, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1932266858650822650, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -891,10 +887,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2357623372383973730, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b701d5f3f3b3ba4ba3b2e5a76401859, type: 2}
     - target: {fileID: 2555472003868461276, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_Name
       value: Car
@@ -933,11 +925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.42
+      value: 10.419897
       objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.67
+      value: -1.6735368
       objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -967,10 +959,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4074865198097665742, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b701d5f3f3b3ba4ba3b2e5a76401859, type: 2}
     - target: {fileID: 4255364271405410419, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -992,29 +980,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 832004948}
     - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: _tireGrip
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: _floatDistance
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 8229317450558674063, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: m_Mass
-      value: 10
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: SlipCurve.m_Curve.Array.data[0].time
+      value: 0.010918427
       objectReference: {fileID: 0}
-    - target: {fileID: 8229317450558674063, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: m_Constraints
-      value: 0
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: SlipCurve.m_Curve.Array.data[0].value
+      value: 0.08947408
       objectReference: {fileID: 0}
-    - target: {fileID: 8229317450558674063, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275198710892645237, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b701d5f3f3b3ba4ba3b2e5a76401859, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
