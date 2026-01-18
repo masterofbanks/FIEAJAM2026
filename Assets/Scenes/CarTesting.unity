@@ -462,6 +462,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &512893419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8885485446427213331, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+  m_PrefabInstance: {fileID: 2113723673406519042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832004946
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +653,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1069950112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 486307492163795719, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+  m_PrefabInstance: {fileID: 2113723673406519042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488222188
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +881,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1043927931495890697, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1932266858650822650, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -883,9 +897,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2347037532327447062, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2555472003868461276, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861825347311259485, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3141121282367689389, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -915,17 +937,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3222621676693053728, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1575
       objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.42
+      value: 10.419897
       objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.67
+      value: -1.6735368
       objectReference: {fileID: 0}
     - target: {fileID: 3947759159109022070, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -976,12 +1002,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 832004948}
     - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: _tireGrip
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: _floatDistance
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: _frontWheels.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: '_frontWheels.Array.data[2]'
+      value: 
+      objectReference: {fileID: 512893419}
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: '_frontWheels.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1069950112}
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: SlipCurve.m_Curve.Array.data[0].time
+      value: 0.010918427
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: SlipCurve.m_Curve.Array.data[0].value
+      value: 0.08947408
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421037945573298381, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627186227400394276, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
