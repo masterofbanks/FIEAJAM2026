@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Candy land.unity
+    guid: e573854785a11544fb75fc4df954cbb0
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 620e81f1e7bbeb5419958734f50e7fce
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 01dd19117fb25e34d9b01990806b1502
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 18713fac2ede7a04d99456b080acbf1b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

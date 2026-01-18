@@ -44,3 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c1767b6dc98f243a14996ccdb110b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _timeInLevel: 180
+  _portal: {fileID: 0}
+  NextSceneName: Candy land
+  _timerText: {fileID: 0}
+  _blackOutEffect: {fileID: 0}
+  _blackOutEffectClip: {fileID: 7400000, guid: 6bb505350c3ce224e9a8cd2580e40008, type: 2}
+  _timeBeforeBlackOut: 3

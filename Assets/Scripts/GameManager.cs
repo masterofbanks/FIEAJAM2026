@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] private float _timeInLevel = 180;
     [SerializeField] private GameObject _portal;
+    [SerializeField] private string NextSceneName;
 
     [Header("UI Stuff")]
     [SerializeField] private TextMeshProUGUI _timerText;
@@ -34,17 +35,35 @@ public class GameManager : MonoBehaviour
                 t = 0;
                 _portal.SetActive(false);
                 _timerText.text = "You ran out of time!";
-                StartCoroutine(EndGame());
+                StartCoroutine(LoseGame());
             }
         }
         
     }
 
-    IEnumerator EndGame()
+    IEnumerator LoseGame()
     {
         _blackOutEffect.SetActive(true);
         float offsetFromBlackOut = 0.5f;
         yield return new WaitForSeconds(_timeBeforeBlackOut + _blackOutEffectClip.length + offsetFromBlackOut);
         SceneManager.LoadScene("LoseScreen");
+    }
+
+    IEnumerator WinGame()
+    {
+        _blackOutEffect.SetActive(true);
+        float offsetFromBlackOut = 0.5f;
+        yield return new WaitForSeconds(_timeBeforeBlackOut + _blackOutEffectClip.length + offsetFromBlackOut);
+        SceneManager.LoadScene("WinScreen");
+    }
+
+    public void ProceedToNextLevel()
+    {
+        SceneManager.LoadScene(NextSceneName);
+    }
+
+    public void ProceedToWin()
+    {
+        StartCoroutine(WinGame());
     }
 }

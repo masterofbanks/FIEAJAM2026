@@ -9534,6 +9534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406744105}
     m_Modifications:
+    - target: {fileID: 5559368064345234161, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6702702083296279501, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
       propertyPath: HowToGetToThisCheckpoint
       value: Take a left, then a right
@@ -12920,6 +12924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406744105}
     m_Modifications:
+    - target: {fileID: 5559368064345234161, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6702702083296279501, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
       propertyPath: HowToGetToThisCheckpoint
       value: Take the first left, then take another left
@@ -14024,6 +14032,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &414598704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4622030468430839886, guid: 9ba2c32d39974e044b3360fea9b00b7d, type: 3}
+  m_PrefabInstance: {fileID: 414598701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &415179043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32243,6 +32256,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406744105}
     m_Modifications:
+    - target: {fileID: 5559368064345234161, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6702702083296279501, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
       propertyPath: HowToGetToThisCheckpoint
       value: Take a left, then a right, then another left
@@ -43926,6 +43943,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2082431499936997398, guid: b5caeff40f56a024cb2c626e7d01efe3, type: 3}
+--- !u!114 &1164946186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7510885740465934589, guid: 44c2d5e6e228ac74f8cb6f7bf39bf97d, type: 3}
+  m_PrefabInstance: {fileID: 7209799928497184898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c1767b6dc98f243a14996ccdb110b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &1165361743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53460,6 +53488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406744105}
     m_Modifications:
+    - target: {fileID: 5559368064345234161, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6702702083296279501, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
       propertyPath: HowToGetToThisCheckpoint
       value: Take the first right, then another right, then a hairpin, a couple more
@@ -65451,6 +65483,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406744105}
     m_Modifications:
+    - target: {fileID: 5559368064345234161, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6702702083296279501, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
       propertyPath: HowToGetToThisCheckpoint
       value: Take the third left
@@ -81542,6 +81578,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406744105}
     m_Modifications:
+    - target: {fileID: 5559368064345234161, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6702702083296279501, guid: 6b6726948befc064bad3eefbb4e6c96d, type: 3}
       propertyPath: HowToGetToThisCheckpoint
       value: Proceed down a squiggly road, then enter the portal
@@ -87583,6 +87623,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3547468155697251489, guid: 91454f9f4d60725409b503bfdfa55069, type: 3}
+      propertyPath: GameManagementScript
+      value: 
+      objectReference: {fileID: 1164946186}
     - target: {fileID: 4031179442566536547, guid: 91454f9f4d60725409b503bfdfa55069, type: 3}
       propertyPath: m_Name
       value: Portal
@@ -87653,6 +87697,14 @@ PrefabInstance:
       propertyPath: _timerText
       value: 
       objectReference: {fileID: 414598703}
+    - target: {fileID: 7510885740465934589, guid: 44c2d5e6e228ac74f8cb6f7bf39bf97d, type: 3}
+      propertyPath: NextSceneName
+      value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510885740465934589, guid: 44c2d5e6e228ac74f8cb6f7bf39bf97d, type: 3}
+      propertyPath: _blackOutEffect
+      value: 
+      objectReference: {fileID: 414598704}
     - target: {fileID: 8409566981686052025, guid: 44c2d5e6e228ac74f8cb6f7bf39bf97d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 820.52466
