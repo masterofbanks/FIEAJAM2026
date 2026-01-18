@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class CarPhysics : MonoBehaviour
 {
@@ -44,8 +45,9 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private float _maxBoostTime = 3f;
     [SerializeField] private float _boostTopSpeedMultiplier = 2f;
     [SerializeField] private float _boostTopPowerMultiplier = 2f;
-    public float _boostTime;
-    public bool _usingBoost;
+    [SerializeField] private Slider _boostBar;
+    private float _boostTime;
+    private bool _usingBoost;
     
     //components
     private Rigidbody _rb;
@@ -95,14 +97,8 @@ public class CarPhysics : MonoBehaviour
 
         ChangeSteeringDirection();
         CalculateSteeringForces();
-        if (_usingBoost && _boostTime > 0)
-        {
-            _boostTime -= Time.fixedDeltaTime;
-            if(_boostTime < 0)
-            {
-                _boostTime = 0;
-            }
-        }
+        UpdateBoostValues();
+        
     }
 
     private void CalculateSuspensionForces()
@@ -274,6 +270,21 @@ public class CarPhysics : MonoBehaviour
                 _boostTime = _maxBoostTime;
             }
         }
+    }
+
+    private void UpdateBoostValues()
+    {
+        if (_usingBoost && _boostTime > 0)
+        {
+            _boostTime -= Time.fixedDeltaTime;
+            if (_boostTime < 0)
+            {
+                _boostTime = 0;
+            }
+        }
+
+        if(_boostBar != null)
+            _boostBar.value = _boostTime / _maxBoostTime;
     }
 
     private void ResetCar(InputAction.CallbackContext cxt)
