@@ -205,9 +205,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.26819378, y: 0.2759807, z: -0.08050134, w: -0.9194707}
-  m_LocalPosition: {x: 11.151594, y: 14.4507475, z: -6.4954157}
-  m_LocalScale: {x: 0.5042947, y: 0.7954645, z: 1.6204314}
+  m_LocalRotation: {x: 0.2130747, y: -0.19657917, z: 0.043935247, w: 0.9560468}
+  m_LocalPosition: {x: 16.620617, y: 9.83706, z: -9.368267}
+  m_LocalScale: {x: 0.31856012, y: 0.74539137, z: 2.178734}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -826,7 +826,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3b701d5f3f3b3ba4ba3b2e5a76401859, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -896,6 +896,10 @@ PrefabInstance:
     - target: {fileID: 1932266858650822650, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183081004032230659, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: HasDrive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2347037532327447062, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_IsActive
@@ -993,6 +997,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4279518685297651139, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: HasDrive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: offset
       value: 0
@@ -1006,10 +1014,6 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: _frontWheels.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: '_frontWheels.Array.data[2]'
       value: 
       objectReference: {fileID: 512893419}
@@ -1017,21 +1021,21 @@ PrefabInstance:
       propertyPath: '_frontWheels.Array.data[3]'
       value: 
       objectReference: {fileID: 1069950112}
-    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: SlipCurve.m_Curve.Array.data[0].time
-      value: 0.010918427
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025928539786617188, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
-      propertyPath: SlipCurve.m_Curve.Array.data[0].value
-      value: 0.08947408
-      objectReference: {fileID: 0}
     - target: {fileID: 5421037945573298381, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6174834803766511294, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: HasDrive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6627186227400394276, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985266105838258561, guid: ba0a16b9f9795334dae712b9a0a823d3, type: 3}
+      propertyPath: HasDrive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

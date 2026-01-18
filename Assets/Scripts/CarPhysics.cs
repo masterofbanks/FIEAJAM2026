@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +22,7 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private float _topSpeed = 30f;
     [SerializeField] private float _topPower = 300f;
     [SerializeField] private TextMeshProUGUI SpeedText;
+    private float _currentTopSpeed;
 
     [Header("Steering Physics")]
     public AnimationCurve SlipCurve;
@@ -32,6 +34,19 @@ public class CarPhysics : MonoBehaviour
     [Header("Braking and Reverse Physics")]
     [SerializeField] private float _brakeForce = 5f;
     [SerializeField] private float _minSpeedToReverse = 0.3f;
+
+    [Header("Drift Scoring")]
+    public float DriftAngle = 0f;
+    [SerializeField] private float _minAngleToDriftScore = 35f;
+    [SerializeField] private float _driftScoreScaling = 0.2f;
+
+    [Header("Boost Values")]
+    [SerializeField] private float _maxBoostTime = 3f;
+    [SerializeField] private float _boostTopSpeedMultiplier = 2f;
+    [SerializeField] private float _boostTopPowerMultiplier = 2f;
+    public float _boostTime;
+    public bool _usingBoost;
+    
     //components
     private Rigidbody _rb;
 
@@ -40,6 +55,7 @@ public class CarPhysics : MonoBehaviour
     private InputAction move;
     private InputAction attack;
     private InputAction flip;
+    private InputAction boost;
     public InputSystem_Actions ISAs;
 
     private Vector3 startPos;
@@ -55,6 +71,8 @@ public class CarPhysics : MonoBehaviour
     {
         startPos = transform.position;
         startRot = transform.rotation;
+        _boostTime = _maxBoostTime;
+        _currentTopSpeed = _topSpeed;
     }
 
     private void Update()
@@ -77,6 +95,14 @@ public class CarPhysics : MonoBehaviour
 
         ChangeSteeringDirection();
         CalculateSteeringForces();
+        if (_usingBoost && _boostTime > 0)
+        {
+            _boostTime -= Time.fixedDeltaTime;
+            if(_boostTime < 0)
+            {
+                _boostTime = 0;
+            }
+        }
     }
 
     private void CalculateSuspensionForces()
@@ -116,10 +142,11 @@ public class CarPhysics : MonoBehaviour
         {
             //test whether each wheel is in contact with the ground via a raycast
             Transform wheel = _wheelPositions[i];
+            WheelProperties wheelProps = wheel.gameObject.GetComponent<WheelProperties>();
             RaycastHit hit;
             bool groundCheck = Physics.Raycast(wheel.position, -1 * wheel.up, out hit, _wheelRadius + _suspensionRestDistance, GroundLayer);
             //if it does have contact with the ground
-            if (groundCheck)
+            if (groundCheck && wheelProps.HasDrive)
             {
                 //find the world space direction of the acceleration force
                 Vector3 accelDir = wheel.forward;
@@ -129,7 +156,7 @@ public class CarPhysics : MonoBehaviour
                     //find the current car speed as the dot product between the car body's forward transform and the rigidbody's velocity
                     float carSpeed = Vector3.Dot(_carBody.forward, _rb.linearVelocity);
                     //normalize that car speed with respect to the car's top speed
-                    float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
+                    float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _currentTopSpeed);
 
                     if(normalizedSpeed < 1)
                     {
@@ -165,7 +192,7 @@ public class CarPhysics : MonoBehaviour
                         //find the current car speed as the dot product between the car body's forward transform and the rigidbody's velocity
                         float carSpeed = Vector3.Dot(-1 * _carBody.forward, _rb.linearVelocity);
                         //normalize that car speed with respect to the car's top speed
-                        float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _topSpeed);
+                        float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / _currentTopSpeed);
 
                         if (normalizedSpeed < 1)
                         {
@@ -227,6 +254,26 @@ public class CarPhysics : MonoBehaviour
             }
 
         }
+
+        //Drift Calculations
+        if(Vector3.Dot(_carBody.forward, _rb.linearVelocity) > 0)
+        {
+            DriftAngle = Vector3.Angle(_carBody.forward, _rb.linearVelocity);
+        }
+        else
+        {
+            DriftAngle = 0;
+        }
+
+        //Boost Calculations
+        if (_boostTime < _maxBoostTime && DriftAngle > _minAngleToDriftScore && !_usingBoost)
+        {
+            _boostTime += (DriftAngle * _driftScoreScaling) / 180f;
+            if(_boostTime > _maxBoostTime)
+            {
+                _boostTime = _maxBoostTime;
+            }
+        }
     }
 
     private void ResetCar(InputAction.CallbackContext cxt)
@@ -244,17 +291,43 @@ public class CarPhysics : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y + verticalOffset, transform.position.z);
     }
 
+    private void BoostCar(InputAction.CallbackContext cxt)
+    {
+        _usingBoost = true;
+        if(_boostTime > 0)
+        {
+            float newSpeed = _topSpeed * _boostTopSpeedMultiplier;
+            _currentTopSpeed = newSpeed;
+
+        }
+        else
+        {
+            _currentTopSpeed = _topSpeed;
+        }
+    }
+
+    private void EndBoost(InputAction.CallbackContext cxt)
+    {
+        _usingBoost = false;
+        _currentTopSpeed = _topSpeed;
+    }
+
     private void OnEnable()
     {
         move = ISAs.Player.Move;
         attack = ISAs.Player.Attack;
         flip = ISAs.Player.Flip;
+        boost = ISAs.Player.Boost;
+
         move.Enable();
         attack.Enable();
         flip.Enable();
+        boost.Enable();
 
         attack.performed += ResetCar;
         flip.performed += FlipCar;
+        boost.started += BoostCar;
+        boost.canceled += EndBoost;
     }
 
     private void OnDisable()
