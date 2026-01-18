@@ -349,8 +349,6 @@ MonoBehaviour:
   - {fileID: 3160663382566634870}
   _minTimeBetweenGames: 2
   _maxTimeBetweenGames: 8
-  _timeBetweenGames: 0
-  t: 0
 --- !u!1 &633194536766021360
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +526,6 @@ MonoBehaviour:
   - {fileID: 5193702408490015177}
   XButton: {fileID: 1257529138825529975}
   numClicksNeeded: 4
-  numClicks: 0
   pHScript: {fileID: 6904692482050903873}
 --- !u!1 &868110499088700062
 GameObject:
@@ -1009,7 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34117648}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1099,7 +1096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6185910110106656315
 RectTransform:
   m_ObjectHideFlags: 0
