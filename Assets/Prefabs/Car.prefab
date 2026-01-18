@@ -244,8 +244,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _carBody: {fileID: 8635432552005183084}
-  _topSpeed: 15
-  _topPower: 20
+  _topSpeed: 25
+  _topPower: 50
   SpeedText: {fileID: 0}
   SlipCurve:
     serializedVersion: 2
@@ -260,8 +260,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.89246416
-      value: 0.081358954
+      time: 0.24910784
+      value: 0.06968598
       inSlope: -0.07479297
       outSlope: -0.07479297
       tangentMode: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   _steeringRange: 30
   _steeringRangeAtMaxSpeed: 60
   _brakeForce: 0.1
-  _minSpeedToReverse: 0.3
+  _minSpeedToReverse: 1
   DriftAngle: 0
   _minAngleToDriftScore: 65
   _driftScoreScaling: 0.2
