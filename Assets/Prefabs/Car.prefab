@@ -185,7 +185,7 @@ MonoBehaviour:
   - {fileID: 1907020314305016016}
   - {fileID: 6534879812796871730}
   - {fileID: 2656741180521828198}
-  _wheelRadius: 0.3
+  _wheelRadius: 0.1
   GroundLayer:
     serializedVersion: 2
     m_Bits: 12
@@ -295,6 +295,8 @@ MonoBehaviour:
   _boostTopSpeedMultiplier: 2
   _boostTopPowerMultiplier: 2
   _boostBar: {fileID: 0}
+  _directionsText: {fileID: 0}
+  checkpointManagerScript: {fileID: 0}
 --- !u!1 &3215865611494110588
 GameObject:
   m_ObjectHideFlags: 0
