@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 227794580168580067}
   - component: {fileID: 5893062480369196778}
   - component: {fileID: 3222621676693053728}
+  - component: {fileID: 7985266105838258561}
   m_Layer: 0
   m_Name: Front Left
   m_TagString: Untagged
@@ -90,6 +91,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7985266105838258561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377621954543350634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bda3dd0d6c8dc4d95ce6d43975a6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WheelProperties
+  HasDrive: 0
+  HandbrakeGripValue: 0.015
 --- !u!1 &2555472003868461276
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +288,12 @@ MonoBehaviour:
   _steeringRangeAtMaxSpeed: 60
   _brakeForce: 0.1
   _minSpeedToReverse: 0.3
+  DriftAngle: 0
+  _minAngleToDriftScore: 65
+  _driftScoreScaling: 0.2
+  _maxBoostTime: 3
+  _boostTime: 0
+  _usingBoost: 0
 --- !u!1 &3215865611494110588
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +305,7 @@ GameObject:
   - component: {fileID: 2656741180521828198}
   - component: {fileID: 3587088043633745155}
   - component: {fileID: 6627186227400394276}
+  - component: {fileID: 2183081004032230659}
   m_Layer: 0
   m_Name: Front Right
   m_TagString: Untagged
@@ -363,6 +385,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2183081004032230659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215865611494110588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bda3dd0d6c8dc4d95ce6d43975a6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WheelProperties
+  HasDrive: 0
+  HandbrakeGripValue: 0.015
 --- !u!1 &3454484321182704117
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +410,7 @@ GameObject:
   - component: {fileID: 1907020314305016016}
   - component: {fileID: 1484690339664509264}
   - component: {fileID: 5421037945573298381}
+  - component: {fileID: 6174834803766511294}
   m_Layer: 0
   m_Name: Rear Left
   m_TagString: Untagged
@@ -453,6 +490,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6174834803766511294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454484321182704117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bda3dd0d6c8dc4d95ce6d43975a6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WheelProperties
+  HasDrive: 1
+  HandbrakeGripValue: 0.015
 --- !u!1 &5642371134347825457
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,9 +646,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 227794580168580067}
+  - {fileID: 2656741180521828198}
   - {fileID: 1907020314305016016}
   - {fileID: 6534879812796871730}
-  - {fileID: 2656741180521828198}
   m_Father: {fileID: 3947759159109022070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7096534048791700408
@@ -611,6 +662,7 @@ GameObject:
   - component: {fileID: 6534879812796871730}
   - component: {fileID: 4523350551918670687}
   - component: {fileID: 2861825347311259485}
+  - component: {fileID: 4279518685297651139}
   m_Layer: 0
   m_Name: Rear Right
   m_TagString: Untagged
@@ -690,6 +742,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4279518685297651139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7096534048791700408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bda3dd0d6c8dc4d95ce6d43975a6d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WheelProperties
+  HasDrive: 1
+  HandbrakeGripValue: 0.015
 --- !u!1001 &4034431226419147910
 PrefabInstance:
   m_ObjectHideFlags: 0
