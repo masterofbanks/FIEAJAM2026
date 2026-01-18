@@ -90773,6 +90773,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 414598703}
     - target: {fileID: 7510885740465934589, guid: 44c2d5e6e228ac74f8cb6f7bf39bf97d, type: 3}
+      propertyPath: _timeInLevel
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510885740465934589, guid: 44c2d5e6e228ac74f8cb6f7bf39bf97d, type: 3}
       propertyPath: NextSceneName
       value: WinScreen
       objectReference: {fileID: 0}
