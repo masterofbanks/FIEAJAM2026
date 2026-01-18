@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Checkpoint
   - Portal
+  - Terrain
   layers:
   - Default
   - TransparentFX

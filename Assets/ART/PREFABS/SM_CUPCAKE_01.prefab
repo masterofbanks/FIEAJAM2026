@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5486764772958118270}
   m_Layer: 0
   m_Name: SM_CUPCAKE_01
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

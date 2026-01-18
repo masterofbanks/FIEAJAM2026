@@ -11,6 +11,12 @@ public class PhoneManager : MonoBehaviour
     [Header("Minigame Timings")]
     [SerializeField] private int _minTimeBetweenGames = 2;
     [SerializeField] private int _maxTimeBetweenGames = 8;
+
+    [Header("SFX")]
+    public GameObject NotiAlert;
+    public GameObject ClickNoise;
+
+
     private int _timeBetweenGames;
     private float t;
 
@@ -51,6 +57,7 @@ public class PhoneManager : MonoBehaviour
 
     private void StartNewMinigame()
     {
+        Instantiate(NotiAlert);
         inMinigame = true;
         int randIndex = rnd.Next(0, _minigameUIComponents.Length);
         _minigameUIComponents[randIndex].SetActive(true);
@@ -61,5 +68,10 @@ public class PhoneManager : MonoBehaviour
     private void PickNewTimeBetweenGame()
     {
         _timeBetweenGames = rnd.Next(_minTimeBetweenGames, _maxTimeBetweenGames);
+    }
+
+    public void PlayClickNoise()
+    {
+        Instantiate(ClickNoise);
     }
 }

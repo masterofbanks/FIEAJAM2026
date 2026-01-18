@@ -52,7 +52,9 @@ public class CarPhysics : MonoBehaviour
     [Header("Phone UI Stuff")]
     [SerializeField] private TextMeshProUGUI _directionsText;
     public CheckpointManager checkpointManagerScript;
-    
+
+    [Header("SFX")]
+    public GameObject CrashSFXPrefab;
     //components
     private Rigidbody _rb;
 
@@ -298,6 +300,14 @@ public class CarPhysics : MonoBehaviour
         {
             other.gameObject.GetComponent<CheckpointProperties>().activated = true;
             _directionsText.text = checkpointManagerScript.OutputDirections();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Terrain"))
+        {
+            Instantiate(CrashSFXPrefab, transform.position, Quaternion.identity);
         }
     }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8716013058261623524}
   m_Layer: 0
   m_Name: SM_GUMDROP_RED
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

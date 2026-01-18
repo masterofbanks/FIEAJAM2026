@@ -435,6 +435,7 @@ MonoBehaviour:
   _boostBar: {fileID: 0}
   _directionsText: {fileID: 0}
   checkpointManagerScript: {fileID: 0}
+  CrashSFXPrefab: {fileID: 948377576645256091, guid: 336bdbe936e72ff46a8b042249174bdc, type: 3}
 --- !u!1 &3215865611494110588
 GameObject:
   m_ObjectHideFlags: 0

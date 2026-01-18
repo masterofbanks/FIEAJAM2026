@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7423468437567499999}
   m_Layer: 0
   m_Name: PP_Birch_Tree_05
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
