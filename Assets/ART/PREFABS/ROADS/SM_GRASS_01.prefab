@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2476825181764001435}
   - component: {fileID: 1580949235397169470}
   - component: {fileID: 3608614470640133620}
+  - component: {fileID: 7245945911264743299}
   m_Layer: 0
   m_Name: SM_GRASS_01
   m_TagString: Untagged
@@ -91,3 +92,15 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7245945911264743299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960170959500821537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3185148859bcc024bbf04cd6f98b019e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InitializeMeshCollider

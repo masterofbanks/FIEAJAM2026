@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8963009885309181233}
   - component: {fileID: 5461979685995156116}
   - component: {fileID: 7793530677595792990}
+  - component: {fileID: 6014796348986012022}
   m_Layer: 0
   m_Name: SM_GRASS_05_CANDY
   m_TagString: Untagged
@@ -91,3 +92,15 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6014796348986012022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586344326674204555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3185148859bcc024bbf04cd6f98b019e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InitializeMeshCollider
