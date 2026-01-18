@@ -382,8 +382,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _carBody: {fileID: 8635432552005183084}
-  _topSpeed: 25
-  _topPower: 50
+  _topSpeed: 20
+  _topPower: 100
   SpeedText: {fileID: 0}
   SlipCurve:
     serializedVersion: 2

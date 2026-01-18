@@ -348,8 +348,8 @@ MonoBehaviour:
   _minigameUIComponents:
   - {fileID: 668393251847634565}
   - {fileID: 3160663382566634870}
-  _minTimeBetweenGames: 2
-  _maxTimeBetweenGames: 8
+  _minTimeBetweenGames: 6
+  _maxTimeBetweenGames: 12
   NotiAlert: {fileID: 948377576645256091, guid: fdb28e2a346b82340b00de379d8f5bf7, type: 3}
   ClickNoise: {fileID: 948377576645256091, guid: 5c65858b27aa3dd4baa50e9df2ad04ff, type: 3}
 --- !u!1 &633194536766021360
