@@ -48,6 +48,10 @@ public class CarPhysics : MonoBehaviour
     [SerializeField] private Slider _boostBar;
     private float _boostTime;
     private bool _usingBoost;
+
+    [Header("Phone UI Stuff")]
+    [SerializeField] private TextMeshProUGUI _directionsText;
+    public CheckpointManager checkpointManagerScript;
     
     //components
     private Rigidbody _rb;
@@ -75,6 +79,7 @@ public class CarPhysics : MonoBehaviour
         startRot = transform.rotation;
         _boostTime = _maxBoostTime;
         _currentTopSpeed = _topSpeed;
+        _directionsText.text = checkpointManagerScript.OutputDirections();
     }
 
     private void Update()
@@ -285,6 +290,15 @@ public class CarPhysics : MonoBehaviour
 
         if(_boostBar != null)
             _boostBar.value = _boostTime / _maxBoostTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            other.gameObject.GetComponent<CheckpointProperties>().activated = true;
+            _directionsText.text = checkpointManagerScript.OutputDirections();
+        }
     }
 
     private void ResetCar(InputAction.CallbackContext cxt)
